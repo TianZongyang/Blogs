@@ -1,0 +1,25 @@
+db:
+  dialect: mysql
+  conn: root:@tcp(127.0.0.1:3306)/blog?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true
+  max-open-connections: 500
+  max-idle-connections: 10
+
+redis:
+  host: 127.0.0.1:6379
+  db: 0
+  password:
+  namespace: bugtian
+
+elasticsearch:
+  host: 9.134.10.128:9200
+  password:
+
+log:
+  error-path: ./accesslog/error/errlog-%Y%M%D.log
+  warn-path: ./accesslog/warn/warnlog-%Y%M%D.log
+  info-path: ./accesslog/info/infolog-%Y%M%D.log
+  level: info
+  split-level: D
+
+system-error-reminder:
+  - 517614486@qq.com
