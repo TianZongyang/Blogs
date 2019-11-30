@@ -16,7 +16,7 @@ type RedisClient struct {
 Init redis connection pool
 初始化redis连接池
 */
-func InitRedisPool(host, pwd string, db, timeout, poolSize int) *RedisClient {
+func InitRedisPool(host, pwd string, db, timeout, poolSize int, namespace string) *RedisClient {
 	// Options 参数配置
 	options := &redis.Options{
 		Addr:        host,
@@ -26,6 +26,7 @@ func InitRedisPool(host, pwd string, db, timeout, poolSize int) *RedisClient {
 		PoolSize:    poolSize,
 	}
 	redisClient := RedisClient{
+		prefix: namespace,
 		Client: redis.NewClient(options),
 	}
 	// Ping redis before use it to check if there is any error while connection
