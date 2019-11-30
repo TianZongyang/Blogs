@@ -7,14 +7,14 @@ import (
 	"time"
 )
 
-func InitDB(dialect string, connStr string, maxPoolSize, minPoolSize int) *gorm.DB {
+func InitDB(dialect string, connStr string, maxOpenConnections, maxIdleConnections int) *gorm.DB {
 	db, err := gorm.Open(dialect, connStr)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	db.SingularTable(true)
-	db.DB().SetMaxOpenConns(maxPoolSize)
-	db.DB().SetMaxIdleConns(minPoolSize)
+	db.DB().SetMaxOpenConns(maxOpenConnections)
+	db.DB().SetMaxIdleConns(maxIdleConnections)
 	db.DB().SetConnMaxLifetime(10 * time.Minute)
 	return db
 }

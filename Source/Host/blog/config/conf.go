@@ -7,15 +7,6 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
-const (
-	// DebugMode debug
-	DEBUG_MODE = "debug"
-	// ReleaseMode release
-	RELEASE_MODE = "release"
-	// TestMode test
-	TEST_MODE = "test"
-)
-
 //config.yaml是总配置,profile可以选择子配置(或者不同模式,子配置项中和总配置冲突的地方以子配置为准)
 func InitConf() Config {
 	conf := defaultConfig()
@@ -25,6 +16,10 @@ func InitConf() Config {
 		return conf
 	}
 	err = yaml.Unmarshal(yamlFile, &conf)
+	if err != nil {
+		log.Fatalln(err)
+		return conf
+	}
 	if conf.Profile != "" {
 		yamlFile, err := ioutil.ReadFile("config-" + conf.Profile + ".yaml")
 		if err != nil {
@@ -36,6 +31,10 @@ func InitConf() Config {
 			return conf
 		}
 		err = yaml.Unmarshal(yamlFile, &conf)
+		if err != nil {
+			log.Fatalln(err)
+			return conf
+		}
 	}
 	log.Printf("current env is %s\n", conf.Env)
 	return conf

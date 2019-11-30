@@ -11,7 +11,7 @@ redis:
   namespace: bugtian
 
 elasticsearch:
-  host: 9.134.10.128:9200
+  host: 127.0.0.1:9200
   password:
 
 log:

@@ -1,4 +1,4 @@
 profile: dev
-env: release
+env: debug
 server-host: 0.0.0.0:8080
 name: BugTian's Blog
