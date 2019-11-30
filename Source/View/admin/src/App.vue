@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header><Header></Header></el-header>
+      <el-aside width="200px"><Menu></Menu></el-aside>
       <el-container>
-        <el-aside width="200px"><Menu></Menu></el-aside>
-        <el-main>Main</el-main>
+        <el-header><Header></Header></el-header>
+        <el-main style="background-color: #f8f8f8">Main</el-main>
       </el-container>
     </el-container>
   </div>
@@ -33,5 +33,8 @@ export default {
 body{
   padding: 0;
   margin: 0;
+}
+.el-header{
+  padding: 0 !important;
 }
 </style>

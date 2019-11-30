@@ -12,6 +12,7 @@
                 menuList:[{
                     menuName:"仪表盘",
                     path:"",
+                    icon:"",
                     enable:true
                 }]
             }
@@ -25,6 +26,6 @@
 <style scoped>
     .menu-container{
         height: 100vh;
-        background-color: #2c3e50;
+        background-color: white;
     }
 </style>
