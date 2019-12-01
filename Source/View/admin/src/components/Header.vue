@@ -1,6 +1,6 @@
 <template>
     <div class="header-container">
-        <i class="el-icon-download menu-show"></i>
+        <i :class="[isCollapse?'el-icon-upload2':'el-icon-download', 'menu-show'].join(' ')" v-on:click="changeMenuCollapseStatus"></i>
         <div>
             <i class="el-icon-full-screen"></i>
             <el-dropdown class="dropdown-box">
@@ -19,7 +19,18 @@
 
 <script>
     export default {
-        name: "Header"
+        name: "Header",
+        methods: {
+            changeMenuCollapseStatus() {
+                this.$store.commit("changeMenuCollapseStatus");
+            }
+        },
+        computed:{
+            isCollapse(){
+                return this.$store.state.isMenuCollapse;
+            }
+        }
+
     }
 </script>
 
@@ -39,7 +50,7 @@
         transform: rotate(90deg);
     }
 
-    .header-container div{
+    .header-container div {
         margin-right: 16px;
     }
 
@@ -53,7 +64,7 @@
         margin-left: 10px;
     }
 
-    .dropdown{
+    .dropdown {
         width: 200px;
     }
 </style>
