@@ -8,7 +8,9 @@
                 <el-header>
                     <Header></Header>
                 </el-header>
-                <el-main style="background-color: #f8f8f8">Main</el-main>
+                <el-main style="background-color: #f8f8f8">
+                    <router-view></router-view>
+                </el-main>
             </el-container>
         </el-container>
     </div>
